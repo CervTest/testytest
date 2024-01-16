@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: testytest
+  annotations:
+    jenkins.io/job-full-name: Experimental/CervTest/testytest
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/team-d

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: testytest
+spec:
+  serviceName: testytest
+  selector:
+    matchLabels:
+      app: testytest
+  template:
+    metadata:
+      labels:
+        app: testytest
+    spec:
+      containers:
+        - name: testytest
+          image: IMAGE_PATH
+          ports:
+            - containerPort: 8080
+

@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: testytest-ingress
+  annotations:
+#    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+spec:
+  ingressClassName: "nginx"
+  rules:
+  - host: APP_URL
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name:  testytest-service
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - APP_URL
+    secretName: testytest-server-secret
